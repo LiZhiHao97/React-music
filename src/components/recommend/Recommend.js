@@ -1,7 +1,7 @@
 import React from 'react'
 import Swiper from 'swiper'
 import { Route } from 'react-router-dom'
-import Album from '../album/Album'
+import Album from '../../containers/Album'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import Scroll from '../../common/scroll/Scroll'
 import Loading from '../../common/loading/Loading'

@@ -14,3 +14,42 @@ const initialState = {
 
 // 拆分Reducer
 // 显示或隐藏播放状态
+function showStatus (showStatus = initialState.showStatus, action) {
+    switch (action.type) {
+        case ActionTypes.SHOW_PLAYER:
+            return action.showStatus
+        default:
+            return showStatus
+    }
+}
+
+// 修改当前歌曲
+function song (song = initialState.song, action) {
+    switch (action.type) {
+        case ActionTypes.CHANGE_SONG:
+            return action.song
+        default:
+            return song
+    }
+}
+
+// 添加或移除歌曲
+function songs (songs = initialState.songs, action) {
+    switch (action.type) {
+        case ActionTypes.SET_SONGS:
+            return action.songs
+        case ActionTypes.REMOVE_SONG_FROM_LIST:
+            return songs.filter(song => song.id !== action.id)
+        default:
+            return songs
+    }
+}
+
+// 合并reducer
+const reducer = combineReducers ({
+    showStatus,
+    song,
+    songs
+})
+
+export default reducer

@@ -76,6 +76,29 @@ class Album extends React.Component {
     }
 
     /**
+     * 选择歌曲
+     */
+    selectSong (song) {
+        return e => {
+            this.props.setSongs([song])
+            this.props.changeCurrentSong(song)
+        }
+    }
+
+    /**
+     * 播放全部
+     */
+    playAll = () => {
+        if (this.state.songs.length > 0) {
+            // 添加播放歌曲列表
+            console.log(this.state);
+            this.props.setSongs(this.state.songs)
+            this.props.changeCurrentSong(this.state.songs[0])
+            this.props.showMusicPlayer(true)
+        }
+    }
+    
+    /**
     * 监听scroll
     */
     scroll = ({y}) => {
@@ -100,7 +123,7 @@ class Album extends React.Component {
         let album = this.state.album;
         let songs = this.state.songs.map((song) => {
             return (
-                <div className="song" key={song.id}>
+                <div className="song" key={song.id} onClick={this.selectSong(song)}>
                     <div className="song-name">{song.name}</div>
                     <div className="song-singer">{song.singer}</div>
                 </div>
@@ -118,7 +141,7 @@ class Album extends React.Component {
                             <div className="filter"></div>
                         </div>
                         <div className="play-wrapper" ref="playButtonWrapper">
-                            <div className="play-button">
+                            <div className="play-button" onClick={this.playAll}>
                                 <i className="icon-play"></i>
                                 <span>播放全部</span>
                             </div>
