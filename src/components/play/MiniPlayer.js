@@ -4,15 +4,32 @@ import Progress from "./Progress"
 import "./miniplayer.scss"
 
 class MiniPlayer extends React.Component {
+    handlePlayOrPause = e => {
+        e.stopPropagation()
+        if (this.props.song.url) {
+            //调用父组件的播放或暂停方法
+            this.props.playOrPause()
+        }
+    }
+
+    handleNext = e => {
+        e.stopPropagation() 
+        if (this.props.song.url) {
+            //调用父组件播放下一首方法
+            this.props.next();
+        }
+        
+    }
+
     render() {
         let song = this.props.song;
 
         let playerStyle = {};
         if (this.props.showStatus === true) {
-            playerStyle = {display:"none"};
+            playerStyle = {display:"none"}
         }
         if (!song.img) {
-            song.img = require("../../assets/imgs/music.png");
+            song.img = require("../../assets/imgs/music.png")
         }
 
         let imgStyle = {};
@@ -42,8 +59,8 @@ class MiniPlayer extends React.Component {
 	                </span>
                 </div>
                 <div className="player-right">
-                    <i className={playButtonClass}></i>
-                    <i className="icon-next ml-10"></i>
+                    <i className={playButtonClass} onClick={this.handlePlayOrPause}></i>
+                    <i className="icon-next ml-10" onClick={this.handleNext}></i>
                 </div>
                 <div className="filter"></div>
             </div>
