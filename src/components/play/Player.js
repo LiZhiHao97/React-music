@@ -79,7 +79,8 @@ class Player extends React.Component {
                     currentIndex = index;
                 }
                 this.props.changeCurrentSong(this.props.playSongs[currentIndex]);
-                this.currentIndex = currentIndex;
+                //调用父组件修改当前歌曲位置
+                this.props.changeCurrentIndex(currentIndex);
         
             } else {
                 if (this.state.currentPlayMode === 1) {  //单曲循环
@@ -145,7 +146,8 @@ class Player extends React.Component {
                 currentIndex = index;
             }
             this.props.changeCurrentSong(this.props.playSongs[currentIndex]);
-            this.currentIndex = currentIndex;
+            //调用父组件修改当前歌曲位置
+            this.props.changeCurrentIndex(currentIndex);
         }
     }
 
@@ -249,16 +251,18 @@ class Player extends React.Component {
     }
 
     render () {
-       let song = this.currentSong
+        this.currentIndex = this.props.currentIndex;
 
-       let playBg = song.img ? song.img : require('../../assets/imgs/play_bg.jpg')
+        let song = this.currentSong
 
-       //播放按钮样式
-       let playButtonClass = this.state.playStatus === true ? "icon-pause" : "icon-play"
+        let playBg = song.img ? song.img : require('../../assets/imgs/play_bg.jpg')
 
-       song.playStatus = this.state.playStatus
+        //播放按钮样式
+        let playButtonClass = this.state.playStatus === true ? "icon-pause" : "icon-play"
 
-       //从redux中获取当前播放歌曲
+        song.playStatus = this.state.playStatus
+
+        //从redux中获取当前播放歌曲
         if (this.props.currentSong && this.props.currentSong.url) {
             //当前歌曲发发生变化
             if (this.currentSong.id !== this.props.currentSong.id) {

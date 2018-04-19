@@ -135,7 +135,7 @@ class Album extends React.Component {
      */
     selectSong (song) {
         return e => {
-            this.props.setSongs(song)
+            this.props.setSongs([song])
             this.props.changeCurrentSong(song)
             this.startMusicIcoAnimation(e.nativeEvent)
         }
