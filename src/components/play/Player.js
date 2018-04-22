@@ -112,16 +112,21 @@ class Player extends React.Component {
 
     // 播放或暂停
     playOrPause = () => {
-        if(this.audioDOM.paused){
-            this.audioDOM.play();
-            this.startImgRotate();
-    
+        if (this.state.playStatus === false){
+             //表示第一次播放
+            if (this.first === undefined) {
+                this.audioDOM.src = this.currentSong.url;
+                this.first = true
+            }
+            this.audioDOM.play()
+            this.startImgRotate()
+
             this.setState({
                 playStatus: true
-            });
-        }else{
-            this.audioDOM.pause();
-            this.stopImgRotate();
+            })
+        } else {
+            this.audioDOM.pause()
+            this.stopImgRotate()
     
             this.setState({
                 playStatus: false
@@ -253,6 +258,19 @@ class Player extends React.Component {
     render () {
         this.currentIndex = this.props.currentIndex;
 
+        //从redux中获取当前播放歌曲
+        if (this.props.currentSong && this.props.currentSong.url) {
+            //当前歌曲发发生变化
+            if (this.currentSong.id !== this.props.currentSong.id) {
+                this.currentSong = this.props.currentSong;
+                if (this.audioDOM) {
+                    this.audioDOM.src = this.currentSong.url;
+                    //加载资源，ios需要调用此方法
+                    this.audioDOM.load();
+                }
+            }
+        }
+
         let song = this.currentSong
 
         let playBg = song.img ? song.img : require('../../assets/imgs/play_bg.jpg')
@@ -262,16 +280,6 @@ class Player extends React.Component {
 
         song.playStatus = this.state.playStatus
 
-        //从redux中获取当前播放歌曲
-        if (this.props.currentSong && this.props.currentSong.url) {
-            //当前歌曲发发生变化
-            if (this.currentSong.id !== this.props.currentSong.id) {
-                this.currentSong = this.props.currentSong;
-                this.audioDOM.src = this.currentSong.url;
-                //加载资源，ios需要调用此方法
-                this.audioDOM.load();
-            }
-        }
         return (
             <div className="player-container">
                 <CSSTransition in={this.props.showStatus} timeout={300} classNames="player-rotate"
