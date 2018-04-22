@@ -1,4 +1,7 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
+import RankingInfo from '../../containers/Ranking'
+import LazyLoad, { forceCheck } from 'react-lazyload'
 import Scroll from '../../common/scroll/Scroll'
 import Loading from '../../common/loading/Loading'
 import { getRankingList } from '../../api/ranking'
@@ -42,17 +45,31 @@ class Ranking extends React.Component {
         });
     }
 
+    toDetail(url) {
+        return () => {
+            this.props.history.push({
+                pathname: url
+            })
+        }
+    }
+
     render () {
+        let { match } = this.props
+
         return (
             <div className="music-ranking">
-                <Scroll refresh={this.state.refreshScroll}>
+                <Scroll refresh={this.state.refreshScroll}
+                    onScroll={() => {forceCheck()}}>
                     <div className="ranking-list">
                         {
                             this.state.rankingList.map(ranking => {
                                 return (
-                                    <div className="ranking-wrapper" key={ranking.id}>
+                                    <div className="ranking-wrapper" key={ranking.id}
+                                        onClick={this.toDetail(`${match.url + '/' + ranking.id}`)}>
                                         <div className="left">
-                                            <img src={ranking.img} alt={ranking.title}/>
+                                            <LazyLoad height={100}>
+                                                <img src={ranking.img} alt={ranking.title}/>
+                                            </LazyLoad>
                                         </div>
                                         <div className="right">
                                             <h1 className="ranking-title">
@@ -79,6 +96,7 @@ class Ranking extends React.Component {
                     </div>
                 </Scroll>
                 <Loading title="正在加载..." show={this.state.loading}/>
+                <Route path={`${match.url + '/:id'}`} component={RankingInfo}></Route>
             </div>
         )
     }

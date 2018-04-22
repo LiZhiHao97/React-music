@@ -23,7 +23,7 @@ export function createRankingByList(data) {
     )
 }
 
-export function createRankingDetail(data) {
+export function createRankingByDetail(data) {
     return new Ranking (
         data.toID,
         data.ListName,
