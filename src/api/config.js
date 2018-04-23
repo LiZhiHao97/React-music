@@ -10,7 +10,11 @@ const URL = {
     /*排行榜*/
     rankingList: "https://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg",
     /*排行榜详情*/
-    rankingInfo: "https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg"
+    rankingInfo: "https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg",
+    /*歌手列表*/
+    singerList: "https://c.y.qq.com/v8/fcg-bin/v8.fcg",
+    /*歌手详情*/
+    singerInfo: "https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg"
 };
 
 const PARAM = {
