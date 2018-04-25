@@ -74,6 +74,8 @@ class SingerList extends React.Component {
     componentDidMount () {
         // 初始化导航元素总宽度
         this.initNavScrollWidth()
+        
+		this.getSingers()
     }
 
     initNavScrollWidth () {
@@ -96,22 +98,22 @@ class SingerList extends React.Component {
 
     getSingers() {
 		getSingerList(1, `${this.state.typeKey + '_' + this.state.indexKey}`).then((res) => {
-			//console.log("获取歌手列表：");
+			//console.log("获取歌手列表：")
 			if (res) {
-				//console.log(res);
+				//console.log(res)
 				if (res.code === CODE_SUCCESS) {
-					let singers = [];
+					let singers = []
 					res.data.list.forEach(data => {
 						let singer = new SingerModel.Singer(data.Fsinger_id, data.Fsinger_mid, data.Fsinger_name,
-					`https://y.gtimg.cn/music/photo_new/T001R150x150M000${data.Fsinger_mid}.jpg?max_age=2592000`);
-						singers.push(singer);
+					`https://y.gtimg.cn/music/photo_new/T001R150x150M000${data.Fsinger_mid}.jpg?max_age=2592000`)
+						singers.push(singer)
 					});
 					this.setState({
 						loading: false,
 						singers
 					}, () => {
 						//刷新scroll
-						this.setState({refreshScroll:true})
+						this.setState({refreshScroll:true});
 					})
 				}
 			}
@@ -121,7 +123,7 @@ class SingerList extends React.Component {
     handleTypeClick = key => {
         this.setState({
             loading: true,
-            typekey: key,
+            typeKey: key,
             indexKey: 'all',
             singers: []
         }, () => {
@@ -148,8 +150,8 @@ class SingerList extends React.Component {
     render () {
         let { match } = this.props
         let tags = this.types.map(type => (
-            <a key={type.key}
-                className={type.key === this.state.typeKey ? 'choose' : ''}
+            <a key={type.key} 
+                className={type.key === this.state.typeKey ? "choose" : ""}
                 onClick={() => {this.handleTypeClick(type.key)}}>
                 {type.name}
             </a>
@@ -166,27 +168,26 @@ class SingerList extends React.Component {
         let singers = this.state.singers.map(singer => {
             return (
                 <div className="singer-wrapper" key={singer.id}
-                    onClick={() => {this.toDetail(`${matchMedia.url + '/' + singer.mId}`)}}>
+                onClick={() => {this.toDetail(`${match.url + '/' + singer.mId}`)}}>
                     <div className="singer-img">
                         <LazyLoad height={50}>
-                            <img src={singer.img} width="100%" height="100%" alt={singer.name}
-                                onError={e => {
-                                    e.currentTarget.src = require('../../assets/imgs/music.png')
-                                }}/>
+                        <img src={singer.img} width="100%" height="100%" alt={singer.name}
+                        onError={(e) => {
+                            e.currentTarget.src = require("../../assets/imgs/music.png");
+                        }}/>
                         </LazyLoad>
-
                     </div>
                     <div className="singer-name">
-                            {singer.name}
+                        {singer.name}
                     </div>
                 </div>
-            )
+            );
         })
         return (
             <div className='music-singers'>
                 <div className="nav">
                     <Scroll direction="horizontal">
-                        <div className="tag" ref='tag'>
+                        <div className="tag" ref="tag">
                             {tags}
                         </div>
                     </Scroll>
@@ -197,13 +198,13 @@ class SingerList extends React.Component {
                     </Scroll>
                 </div>
                 <div className="singer-list">
-                    <Scroll refresh={this.state.refreshScroll}
-                        onScroll={() => {forceCheck();}} ref="singerScroll">
-                        <div className="singer-container">
-                            {singers}
-                        </div>
-                    </Scroll>
-                </div>
+					<Scroll refresh={this.state.refreshScroll}
+						onScroll={() => {forceCheck();}} ref="singerScroll">
+						<div className="singer-container">
+							{singers}	
+						</div>
+					</Scroll>
+				</div>
                 <Loading title="正在加载..." show={this.state.loading} />
                 <Route path={`${match.url + '/:id'}`} component={Singer} />
             </div>

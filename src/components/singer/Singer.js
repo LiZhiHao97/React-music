@@ -63,6 +63,8 @@ class Singer extends React.Component {
                 }
             }
         })
+
+        this.initMusicIco()
     }
 
     
@@ -107,7 +109,7 @@ class Singer extends React.Component {
 		this.musicIcos.push(ReactDOM.findDOMNode(this.refs.musicIco3));
 
 		this.musicIcos.forEach((item) => {
-			//初始化状态
+            //初始化状态
 			item.run = false;
 			let transitionEndName = getTransitionEndName(item);
 			item.addEventListener(transitionEndName, function() {
@@ -178,7 +180,7 @@ class Singer extends React.Component {
             )
         })
         return (
-            <CSSTransition in={this.state.show} time={300} classNames="translate">
+            <CSSTransition in={this.state.show} timeout={300} classNames="translate">
                 <div className="music-singer">
                     <Header title={singer.name} ref="header"></Header>
                     <div style={{position:"relative"}}>
@@ -207,6 +209,15 @@ class Singer extends React.Component {
                             </Scroll>
                         </div>
                         <Loading title="正在加载..." show={this.state.loading}/>
+                    </div>
+                    <div className="music-ico" ref="musicIco1">
+                        <div className="icon-fe-music"></div>
+                    </div>
+                    <div className="music-ico" ref="musicIco2">
+                        <div className="icon-fe-music"></div>
+                    </div>
+                    <div className="music-ico" ref="musicIco3">
+                        <div className="icon-fe-music"></div>
                     </div>
                 </div>
             </CSSTransition>

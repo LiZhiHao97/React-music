@@ -57,6 +57,7 @@
 
         .singer-img {
             $width: 50px;
+            width: $width;
             height: $width;
             img {
                 border-radius: 50%;

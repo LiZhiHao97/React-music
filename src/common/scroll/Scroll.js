@@ -15,10 +15,10 @@ class Scroll extends React.Component {
         this.scrollView = ReactDOM.findDOMNode(this.refs.scrollView);
         if (!this.bScroll) {
             this.bScroll = new BScroll(this.scrollView, {
-                scrollX: this.props.direction === 'horizontal',
-                scrollY: this.props.direction === 'vertical',
+                scrollX: this.props.direction === "horizontal",
+                scrollY: this.props.direction === "vertical",
                 //实时派发scroll事件
-                propType: 3,
+                probeType: 3,
                 click: this.props.click
             });
 
