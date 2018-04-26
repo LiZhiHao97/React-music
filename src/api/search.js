@@ -1,6 +1,5 @@
 import jsonp from './jsonp'
 import { URL, PARAM, OPTION } from './config'
-import connect from '../../node_modules/_react-redux@5.0.7@react-redux/lib/connect/connect';
 
 export function getHotKey () {
     const data = Object.assign({}, PARAM, {
@@ -12,7 +11,7 @@ export function getHotKey () {
         _: new Date().getTime()
     })
 
-    return jsonp(URL.hotKey, data, OPTION)
+    return jsonp(URL.hotkey, data, OPTION)
 }
 
 export function search(w) {
