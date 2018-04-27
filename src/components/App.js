@@ -5,21 +5,31 @@ import Ranking from './ranking/Ranking'
 import SingerList from './singer/SingerList'
 import Search from '../containers/Search'
 import MusicPlayer from './play/MusicPlayer'
+import MusicMenu from './setting/Menu'
 import logo from '../assets/imgs/logo.png'
 import '../assets/sass/font.scss'
 import '../assets/sass/reset.scss'
 import './App.scss'
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      menuShow: false
+    };
+  }
+
   render() {
     return (
      <BrowserRouter>
-       <div className="app">
-        <header className="app-header">
+       <div className="app skin-app" >
+        <header className="app-header skin-app-header">
+        <i className="icon-et-more app-more" onClick={() => {this.setState({menuShow: true});}}></i>
           <img src={logo} className="app-logo" alt="logo" />
           <h1 className="app-title">React Music</h1>
         </header>
-        <div className="music-tab">
+        <div className="music-tab skin-music-tab">
           <div className="tab-item selected">
             <NavLink to="/recommend" className="nav-link">
               <span>推荐</span> 
@@ -52,6 +62,8 @@ class App extends React.Component {
           </Switch>
         </div>
         <MusicPlayer />
+        <MusicMenu show={this.state.menuShow}
+               closeMenu={() => {this.setState({menuShow: false});}} />
       </div>
      </BrowserRouter> 
     )

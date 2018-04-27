@@ -49,7 +49,7 @@ class MiniPlayer extends React.Component {
 
         let playButtonClass = song.playStatus === true ? "icon-pause" : "icon-play";
         return (
-            <div className="mini-player" style={playerStyle}>
+            <div className="mini-player skin-mini-player" style={playerStyle}>
                 <div className="player-img rotate" style={imgStyle} onClick={this.handleShow}>
                     <img src={song.img} alt={song.name}/>
                 </div>

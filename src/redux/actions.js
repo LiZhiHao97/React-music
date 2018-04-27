@@ -19,3 +19,7 @@ export function removeSong (id) {
 export function setSongs (songs) {
     return { type: ActionTypes.SET_SONGS, songs }
 }
+
+export function setSkin(skin) {
+	return {type:ActionTypes.SET_SKIN, skin};
+}

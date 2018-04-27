@@ -5,7 +5,7 @@
     .nav {
         padding-top: 10px 20px;
         font-size: 14px;
-        color: rgna(221, 221, 221, 0.7);
+        // color: rgna(221, 221, 221, 0.7);
         .tag, .index {
             display: flex;
             align-items: center;
@@ -25,7 +25,7 @@
                 &.choose {
                     border: 1px solid #ffd700;
                     border-radius: 10px;
-                    color: #ffd700
+                    // color: #ffd700
                 }
             }
         }
@@ -73,7 +73,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            color: #fff;
         }
     }
 }

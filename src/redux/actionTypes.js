@@ -9,3 +9,6 @@ export const REMOVE_SONG_FROM_LIST = 'REMOVE_SONG'
 
 // 设置歌曲列表
 export const SET_SONGS = 'SET_SONGS'
+
+// 设置皮肤
+export const SET_SKIN = "SET_SKIN";

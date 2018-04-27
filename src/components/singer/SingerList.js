@@ -184,7 +184,7 @@ class SingerList extends React.Component {
             );
         })
         return (
-            <div className='music-singers'>
+            <div className='music-singers skin-music-singers'>
                 <div className="nav">
                     <Scroll direction="horizontal">
                         <div className="tag" ref="tag">
