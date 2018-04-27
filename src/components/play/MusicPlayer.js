@@ -26,12 +26,12 @@ class MusicPlayer extends React.Component {
         return (
             <div className="music-player">
                 <Player currentIndex={this.state.currentSongIndex}
-                    showList={this.showList}
-                    changeCurrentIndex={this.changeCurrentIndex} />
-                <PlayerList currentIndex={this.state.currentSongIndex} 
-                    showList={this.showList}
-                    changeCurrentIndex={this.changeCurrentIndex}
-                    show={this.state.show} />
+					showList={this.showList}
+					changeCurrentIndex={this.changeCurrentIndex}/>
+				<PlayerList currentIndex={this.state.currentSongIndex}
+					showList={this.showList} 
+					changeCurrentIndex={this.changeCurrentIndex}
+					show={this.state.show}/>
             </div>
         )
     }

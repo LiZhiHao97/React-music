@@ -23,7 +23,7 @@ class MiniPlayer extends React.Component {
 
 	handleShow = () => {
 		if (this.props.song.url) {
-			this.props.showMiniPlayer();
+			this.props.showMiniPlayer()
 		}
     }
     

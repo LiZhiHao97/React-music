@@ -79,7 +79,7 @@ class Progress extends React.Component {
         return (
             <div className="progress-bar" ref="progressBar">
                 <div className="progress-load"></div>
-                <div className="progress" style={{width: `${progress * 100}`}} ref="progress"></div>
+                <div className="progress" style={{width: `${progress * 100}%`}} ref="progress"></div>
                 {
                     disableButton === true ? "" :
                     <div className="progress-button" style={{left:progressButtonOffsetLeft}} ref="progressBtn"></div>

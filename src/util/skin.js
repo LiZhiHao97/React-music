@@ -2,97 +2,97 @@ import localStorage from "./storage"
 
 const skin = {};
 
-skin.mangoYellow = {
-  appColor: "#333333",
-  appBgColor: "#F8F8FF",
-  /* 首页header */
-  appHeaderColor: "#FFFFF0",
-  appHeaderBgColor: "#FFA500",
-  /* 首页tab */
-  tabColor: "rgba(0, 0, 0, .7)",
-  tabBgColor: "#FFFFFF",
-  /* 最新专辑 */
-  albumColor: "rgba(0, 0, 0, 0.6)",
-  albumNameColor: "#333333",
-  /* 排行榜 */
-  rankingWrapperBgColor: "#FFFFFF",
-  rankingSingerColor: "rgba(0, 0, 0, 0.5)",
-  /* 搜索 */
-  searchBgColor: "#FFFFFF",
-  searchBoxBgColor: "#FFFFFF",
-  searchBoxWrapperBgColor: "#F8F8FF",
-  searchTitleColor: "rgba(0, 0, 0, .7)",
-  searchHotColor: "#000000",
-  searchHotBorderColor: "rgba(0, 0, 0, .7)",
-  searchResultBorderColor: "#E5E5E5",
-  /* 详情 */
-  detailBgColor: "#F8F8FF",
-  detailSongColor: "#000000",
-  detailSingerColor: "rgba(0, 0, 0, 0.6)",
-  /* mini播放器 */
-  miniPlayerBgColor: "#FFFFFF",
-  miniImgBorderColor: "#EEEEEE",
-  miniProgressBarBgColor: "rgba(0, 0, 0, 0.1)",
-  miniRightColor: "#FFD700",
-  miniSongColor: "#333333",
-  activeColor: "#FFA500"
+skin.coolBlack = {
+    appColor: "#DDDDDD",
+    appBgColor: "#212121",
+    /* 首页header */
+    appHeaderColor: "#FFD700",
+    appHeaderBgColor: "transparent",
+    /* 首页tab */
+    tabColor: "#DDDDDD",
+    tabBgColor: "transparent",
+    /* 最新专辑 */
+    albumColor: "rgba(221, 221, 221, 0.7)",
+    albumNameColor: "#FFFFFF",
+    /* 排行榜 */
+    rankingWrapperBgColor: "#333333",
+    rankingSingerColor: "rgba(221, 221, 221, 0.7)",
+    /* 搜索 */
+    searchBgColor: "#212121",
+    searchBoxBgColor: "#333333",
+    searchBoxWrapperBgColor: "#212121",
+    searchTitleColor: "#FFD700",
+    searchHotColor: "#DDDDDD",
+    searchHotBorderColor: "transparent",
+    searchResultBorderColor: "transparent",
+    /* 详情 */
+    detailBgColor: "#212121",
+    detailSongColor: "#FFFFFF",
+    detailSingerColor: "rgba(221, 221, 221, 0.7)",
+    /* mini播放器 */
+    miniPlayerBgColor: "#333333",
+    miniImgBorderColor: "rgba(221, 221, 221, 0.3)",
+    miniProgressBarBgColor: "rgba(0, 0, 0, 0.3)",
+    miniRightColor: "#FFD700",
+    miniSongColor: "#FFFFFF",
+    activeColor: "#FFD700"
 };
 
-skin.coolBlack = {
-  appColor: "#DDDDDD",
-  appBgColor: "#212121",
-  appHeaderColor: "#FFD700",
-  appHeaderBgColor: "transparent",
-  tabColor: "#DDDDDD",
-  tabBgColor: "transparent",
-  albumColor: "rgba(221, 221, 221, 0.7)",
-  albumNameColor: "#FFFFFF",
-  rankingWrapperBgColor: "#333333",
-  rankingSingerColor: "rgba(221, 221, 221, 0.7)",
-  searchBgColor: "#212121",
-  searchBoxBgColor: "#333333",
-  searchBoxWrapperBgColor: "#212121",
-  searchTitleColor: "#FFD700",
-  searchHotColor: "#DDDDDD",
-  searchHotBorderColor: "transparent",
-  searchResultBorderColor: "transparent",
-  detailBgColor: "#212121",
-  detailSongColor: "#FFFFFF",
-  detailSingerColor: "rgba(221, 221, 221, 0.7)",
-  miniPlayerBgColor: "#333333",
-  miniImgBorderColor: "rgba(221, 221, 221, 0.3)",
-  miniProgressBarBgColor: "rgba(0, 0, 0, 0.3)",
-  miniRightColor: "#FFD700",
-  miniSongColor: "#FFFFFF",
-  activeColor: "#FFD700"
+skin.mangoYellow = {
+    appColor: "#333333",
+    appBgColor: "#F8F8FF",
+    appHeaderColor: "#FFFFF0",
+    appHeaderBgColor: "#FFA500",
+    tabColor: "rgba(0, 0, 0, .7)",
+    tabBgColor: "#FFFFFF",
+    albumColor: "rgba(0, 0, 0, 0.6)",
+    albumNameColor: "#333333",
+    rankingWrapperBgColor: "#FFFFFF",
+    rankingSingerColor: "rgba(0, 0, 0, 0.5)",
+    searchBgColor: "#FFFFFF",
+    searchBoxBgColor: "#FFFFFF",
+    searchBoxWrapperBgColor: "#F8F8FF",
+    searchTitleColor: "rgba(0, 0, 0, .7)",
+    searchHotColor: "#000000",
+    searchHotBorderColor: "rgba(0, 0, 0, .7)",
+    searchResultBorderColor: "#E5E5E5",
+    detailBgColor: "#F8F8FF",
+    detailSongColor: "#000000",
+    detailSingerColor: "rgba(0, 0, 0, 0.6)",
+    miniPlayerBgColor: "#FFFFFF",
+    miniImgBorderColor: "#EEEEEE",
+    miniProgressBarBgColor: "rgba(0, 0, 0, 0.1)",
+    miniRightColor: "#FFD700",
+    miniSongColor: "#333333",
+    activeColor: "#FFA500"
 };
 
 skin.kuGouBlue = Object.assign({}, skin.mangoYellow, {
-  appHeaderBgColor: "#2CA2F9",
-  activeColor: "#2CA2F9",
-  searchTitleColor: "#2CA2F9",
-  miniRightColor: "#2CA2F9"
+    appHeaderBgColor: "#2CA2F9",
+    activeColor: "#2CA2F9",
+    searchTitleColor: "#2CA2F9",
+    miniRightColor: "#2CA2F9"
 });
 
 skin.netBaseRed = Object.assign({}, skin.mangoYellow, {
-  appHeaderBgColor: "#D43C33",
-  activeColor: "#D43C33",
-  searchTitleColor: "#D43C33",
-  miniRightColor: "#D43C33"
+    appHeaderBgColor: "#D43C33",
+    activeColor: "#D43C33",
+    searchTitleColor: "#D43C33",
+    miniRightColor: "#D43C33"
 });
 
 skin.qqGreen = Object.assign({}, skin.mangoYellow, {
-  appHeaderBgColor: "#31C27C",
-  activeColor: "#31C27C",
-  searchTitleColor: "#31C27C",
-  miniRightColor: "#31C27C"
+    appHeaderBgColor: "#31C27C",
+    activeColor: "#31C27C",
+    searchTitleColor: "#31C27C",
+    miniRightColor: "#31C27C"
 });
 
 let getSkinStyle = (skin) => {
-  if (!skin) {
-    return "";
-  }
-  return `
+    if (!skin) {
+        return "";
+    }
+    return `
     .skin-app {
       color: ${skin.appColor};
       background-color: ${skin.appBgColor};
@@ -197,16 +197,15 @@ let getSkinStyle = (skin) => {
 };
 
 let setSkinStyle = (skin) => {
-  let styleText = getSkinStyle(skin);
-  let oldStyle = document.getElementById("skin");
-  const style = document.createElement("style");
-  style.id = "skin";
-  style.type = "text/css";
-  style.innerHTML = styleText;
-  oldStyle ? document.head.replaceChild(style, oldStyle) : document.head.appendChild(style);
+    let styleText = getSkinStyle(skin);
+    let oldStyle = document.getElementById("skin");
+    const style = document.createElement("style");
+    style.id = "skin";
+    style.type = "text/css";
+    style.innerHTML = styleText;
+    oldStyle ? document.head.replaceChild(style, oldStyle) : document.head.appendChild(style);
 };
 
-// 设置皮肤
-setSkinStyle(skin[localStorage.getSkin()]);
+setSkinStyle(skin[localStorage.getSkin()])
 
-export {skin, setSkinStyle}
+export { skin, setSkinStyle }
