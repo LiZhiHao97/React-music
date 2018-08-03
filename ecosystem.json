@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "React-music",
-      "script": "app.js",
+      "script": "scripts/customized-build start",
       "env": {
         "COMMON_VARIABLE": "true"
       },
